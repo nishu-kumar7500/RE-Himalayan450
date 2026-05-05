@@ -8,12 +8,12 @@ const heroCounter = document.getElementById("heroCounter");
 const thumbs = document.querySelectorAll(".thumb");
 
 const heroSlides = [
-  "images/img5.jpg",
-  "images/img1.jpg",
-  "images/img7.jpg",
-  "images/img10.jpg",
-  "images/img14.png",
-  "images/img11.jpg"
+  { src: "images/img5.jpg", pos: "50% 60%" },
+  { src: "images/img1.jpg", pos: "50% 58%" },
+  { src: "images/img7.jpg", pos: "48% 60%" },
+  { src: "images/img10.jpg", pos: "50% 57%" },
+  { src: "images/img14.png", pos: "50% 62%" },
+  { src: "images/img11.jpg", pos: "50% 60%" }
 ];
 
 let activeSlide = 0;
@@ -52,6 +52,9 @@ function setHeroImage(src, index, fromThumb = false) {
   }
 
   heroImage.src = src;
+  const activeThumb = Array.from(thumbs).find((thumb) => thumb.dataset.hero === src);
+  const pos = activeThumb?.dataset.pos || heroSlides[index]?.pos || "50% 58%";
+  heroImage.style.setProperty("--hero-pos", pos);
 
   if (heroCounter) {
     heroCounter.textContent = `${index + 1} / ${heroSlides.length}`;
@@ -72,7 +75,7 @@ function setHeroImage(src, index, fromThumb = false) {
 
 function nextSlide() {
   activeSlide = (activeSlide + 1) % heroSlides.length;
-  setHeroImage(heroSlides[activeSlide], activeSlide);
+  setHeroImage(heroSlides[activeSlide].src, activeSlide);
 }
 
 thumbs.forEach((thumb) => {
@@ -98,5 +101,5 @@ function resetSlider() {
   startSlider();
 }
 
-setHeroImage(heroSlides[0], 0);
+setHeroImage(heroSlides[0].src, 0);
 startSlider();
