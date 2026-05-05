@@ -6,34 +6,56 @@
   <title>Royal Enfield Himalayan 450</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="bg-glow glow-left"></div>
+  <div class="bg-glow glow-right"></div>
+
   <header class="header">
-    <div class="logo">Royal Enfield Himalayan 450</div>
+    <a href="#home" class="logo">
+      <span class="logo-mark">RE</span>
+      <span>Himalayan 450</span>
+    </a>
     <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">Menu</button>
     <nav class="nav" id="nav">
       <a href="#home">Home</a>
-      <a href="#tabs">Tabs</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
+      <a href="#tabs">Details</a>
+      <a href="#gallery">Photos</a>
+      <a href="#contact">Book</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="hero-text">
-        <p class="badge">ADVENTURE TOURER</p>
-        <h1>Ride the Himalayan 450</h1>
-        <p>
-          All your uploaded images are now renamed with short names and integrated
-          into this premium responsive website.
+      <div class="hero-left">
+        <p class="badge">PREMIUM ADVENTURE EXPERIENCE</p>
+        <h1>Royal Enfield Himalayan 450</h1>
+        <p class="hero-copy">
+          Advanced responsive showcase with dynamic photo transitions and optimized
+          image framing so the bike remains clear, sharp, and visible on every device.
         </p>
-        <button class="btn" data-tab-target="specs">View Specs</button>
+        <div class="hero-actions">
+          <button class="btn primary" data-tab-target="specs">Explore Specs</button>
+          <a class="btn ghost" href="#gallery">View Dynamic Gallery</a>
+        </div>
       </div>
-      <div class="hero-media">
-        <img src="images/img5.jpg" alt="Royal Enfield Himalayan 450 Hero" />
+      <div class="hero-right">
+        <div class="hero-frame">
+          <img id="heroImage" src="images/img5.jpg" alt="Royal Enfield Himalayan 450 featured photo" />
+          <div class="hero-overlay">
+            <p>Himalayan 450</p>
+            <span id="heroCounter">1 / 14</span>
+          </div>
+        </div>
+        <div class="thumb-row" id="thumbRow">
+          <button class="thumb active" data-hero="images/img5.jpg" data-index="1"><img src="images/img5.jpg" alt="Thumb 1" /></button>
+          <button class="thumb" data-hero="images/img1.jpg" data-index="2"><img src="images/img1.jpg" alt="Thumb 2" /></button>
+          <button class="thumb" data-hero="images/img7.jpg" data-index="3"><img src="images/img7.jpg" alt="Thumb 3" /></button>
+          <button class="thumb" data-hero="images/img10.jpg" data-index="4"><img src="images/img10.jpg" alt="Thumb 4" /></button>
+          <button class="thumb" data-hero="images/img14.png" data-index="5"><img src="images/img14.png" alt="Thumb 5" /></button>
+        </div>
       </div>
     </section>
 
@@ -45,68 +67,73 @@
       </div>
 
       <article id="overview" class="tab-panel active">
-        <h2>Overview</h2>
+        <h2>Ride Beyond Limits</h2>
         <p>
-          The Royal Enfield Himalayan 450 is designed for explorers who want
-          comfort on long rides and confidence on rough roads.
+          The Himalayan 450 combines long-distance comfort with genuine off-road ability.
+          This build focuses on visual storytelling with your real photos and premium layout polish.
         </p>
       </article>
 
       <article id="specs" class="tab-panel">
-        <h2>Specifications</h2>
-        <ul>
-          <li>Engine: 452cc liquid-cooled single-cylinder</li>
-          <li>Power: 40 PS (approx)</li>
-          <li>Torque: 40 Nm (approx)</li>
-          <li>Gearbox: 6-speed</li>
-          <li>Fuel Tank: 17 liters</li>
-        </ul>
+        <h2>Technical Specifications</h2>
+        <div class="spec-grid">
+          <div><span>Engine</span><strong>452cc, Liquid-Cooled</strong></div>
+          <div><span>Power</span><strong>~40 PS</strong></div>
+          <div><span>Torque</span><strong>~40 Nm</strong></div>
+          <div><span>Gearbox</span><strong>6-Speed</strong></div>
+          <div><span>Tank</span><strong>17 Liters</strong></div>
+          <div><span>Purpose</span><strong>Touring + Trail</strong></div>
+        </div>
       </article>
 
       <article id="features" class="tab-panel">
-        <h2>Premium Features</h2>
-        <ul>
-          <li>TFT display and navigation support</li>
-          <li>Long-travel suspension for mixed terrain</li>
-          <li>Strong build quality and touring ergonomics</li>
+        <h2>Premium Highlights</h2>
+        <ul class="feature-list">
+          <li>TFT navigation-ready display with modern readout</li>
+          <li>Long-travel suspension confidence on mixed surfaces</li>
+          <li>Balanced ergonomics for city and expedition use</li>
+          <li>Dynamic photo-first layout for better visual impact</li>
         </ul>
       </article>
     </section>
 
-    <section id="gallery" class="gallery">
-      <h2>All Uploaded Photos</h2>
-      <p class="note">Using all files from `images/img1.jpg` to `images/img14.png`.</p>
-      <div class="gallery-grid">
-        <img src="images/img1.jpg" alt="Bike photo 1" />
-        <img src="images/img2.jpg" alt="Bike photo 2" />
-        <img src="images/img3.jpg" alt="Bike photo 3" />
-        <img src="images/img4.jpg" alt="Bike photo 4" />
-        <img src="images/img5.jpg" alt="Bike photo 5" />
-        <img src="images/img6.jpg" alt="Bike photo 6" />
-        <img src="images/img7.jpg" alt="Bike photo 7" />
-        <img src="images/img8.jpg" alt="Bike photo 8" />
-        <img src="images/img9.jpg" alt="Bike photo 9" />
-        <img src="images/img10.jpg" alt="Bike photo 10" />
-        <img src="images/img11.jpg" alt="Bike photo 11" />
-        <img src="images/img12.jpg" alt="Bike photo 12" />
-        <img src="images/img13.jpg" alt="Bike photo 13" />
-        <img src="images/img14.png" alt="Bike photo 14" />
+    <section class="gallery" id="gallery">
+      <div class="gallery-head">
+        <h2>Dynamic Photo Wall</h2>
+        <p>All 14 uploaded photos are used below with adaptive framing.</p>
+      </div>
+
+      <div class="masonry">
+        <figure class="spotlight wide"><img src="images/img1.jpg" alt="Himalayan photo 1" /></figure>
+        <figure class="tile"><img src="images/img2.jpg" alt="Himalayan photo 2" /></figure>
+        <figure class="tile tall"><img src="images/img3.jpg" alt="Himalayan photo 3" /></figure>
+        <figure class="tile"><img src="images/img4.jpg" alt="Himalayan photo 4" /></figure>
+        <figure class="spotlight"><img src="images/img5.jpg" alt="Himalayan photo 5" /></figure>
+        <figure class="tile"><img src="images/img6.jpg" alt="Himalayan photo 6" /></figure>
+        <figure class="tile"><img src="images/img7.jpg" alt="Himalayan photo 7" /></figure>
+        <figure class="tile tall"><img src="images/img8.jpg" alt="Himalayan photo 8" /></figure>
+        <figure class="tile"><img src="images/img9.jpg" alt="Himalayan photo 9" /></figure>
+        <figure class="spotlight wide"><img src="images/img10.jpg" alt="Himalayan photo 10" /></figure>
+        <figure class="tile"><img src="images/img11.jpg" alt="Himalayan photo 11" /></figure>
+        <figure class="tile"><img src="images/img12.jpg" alt="Himalayan photo 12" /></figure>
+        <figure class="tile"><img src="images/img13.jpg" alt="Himalayan photo 13" /></figure>
+        <figure class="tile"><img src="images/img14.png" alt="Himalayan photo 14" /></figure>
       </div>
     </section>
 
     <section class="contact" id="contact">
-      <h2>Book Test Ride</h2>
+      <h2>Book Your Test Ride</h2>
       <form>
         <input type="text" placeholder="Full Name" required />
         <input type="tel" placeholder="Phone Number" required />
         <input type="text" placeholder="City" required />
-        <button type="submit" class="btn">Submit</button>
+        <button type="submit" class="btn primary">Submit Request</button>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>Royal Enfield Himalayan 450 Premium Showcase</p>
+    <p>Royal Enfield Himalayan 450 | Advanced Premium Showcase</p>
   </footer>
 
   <script src="script.js"></script>
