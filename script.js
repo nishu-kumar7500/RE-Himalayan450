@@ -6,6 +6,10 @@ const cta = document.querySelector("[data-tab-target]");
 const heroImage = document.getElementById("heroImage");
 const heroCounter = document.getElementById("heroCounter");
 const thumbs = document.querySelectorAll(".thumb");
+const galleryImages = document.querySelectorAll(".clickable-photo img");
+const photoLightbox = document.getElementById("photoLightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
 
 const heroSlides = [
   { src: "images/img5.jpg", pos: "50% 60%" },
@@ -103,3 +107,46 @@ function resetSlider() {
 
 setHeroImage(heroSlides[0].src, 0);
 startSlider();
+
+function openLightbox(src, alt) {
+  if (!photoLightbox || !lightboxImage) {
+    return;
+  }
+  lightboxImage.src = src;
+  lightboxImage.alt = alt || "Fullscreen photo";
+  photoLightbox.classList.add("open");
+  photoLightbox.setAttribute("aria-hidden", "false");
+}
+
+function closeLightbox() {
+  if (!photoLightbox || !lightboxImage) {
+    return;
+  }
+  photoLightbox.classList.remove("open");
+  photoLightbox.setAttribute("aria-hidden", "true");
+  lightboxImage.src = "";
+}
+
+galleryImages.forEach((image) => {
+  image.addEventListener("click", () => {
+    openLightbox(image.src, image.alt);
+  });
+});
+
+if (lightboxClose) {
+  lightboxClose.addEventListener("click", closeLightbox);
+}
+
+if (photoLightbox) {
+  photoLightbox.addEventListener("click", (event) => {
+    if (event.target === photoLightbox) {
+      closeLightbox();
+    }
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && photoLightbox?.classList.contains("open")) {
+    closeLightbox();
+  }
+});
