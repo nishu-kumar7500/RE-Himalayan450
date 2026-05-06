@@ -10,6 +10,9 @@ const galleryImages = document.querySelectorAll(".clickable-photo img");
 const photoLightbox = document.getElementById("photoLightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxClose = document.getElementById("lightboxClose");
+const testimonialSlides = document.querySelectorAll(".t-slide");
+const testimonialPrev = document.getElementById("tPrev");
+const testimonialNext = document.getElementById("tNext");
 
 const heroSlides = [
   { src: "images/img5.jpg", pos: "50% 60%" },
@@ -150,3 +153,50 @@ document.addEventListener("keydown", (event) => {
     closeLightbox();
   }
 });
+
+let activeTestimonial = 0;
+let testimonialTimer = null;
+
+function setTestimonial(index) {
+  if (!testimonialSlides.length) {
+    return;
+  }
+  activeTestimonial = (index + testimonialSlides.length) % testimonialSlides.length;
+  testimonialSlides.forEach((slide, idx) => {
+    slide.classList.toggle("active", idx === activeTestimonial);
+  });
+}
+
+function nextTestimonial() {
+  setTestimonial(activeTestimonial + 1);
+}
+
+function startTestimonialAutoplay() {
+  if (testimonialTimer || !testimonialSlides.length) {
+    return;
+  }
+  testimonialTimer = setInterval(nextTestimonial, 4500);
+}
+
+function resetTestimonialAutoplay() {
+  clearInterval(testimonialTimer);
+  testimonialTimer = null;
+  startTestimonialAutoplay();
+}
+
+if (testimonialPrev) {
+  testimonialPrev.addEventListener("click", () => {
+    setTestimonial(activeTestimonial - 1);
+    resetTestimonialAutoplay();
+  });
+}
+
+if (testimonialNext) {
+  testimonialNext.addEventListener("click", () => {
+    setTestimonial(activeTestimonial + 1);
+    resetTestimonialAutoplay();
+  });
+}
+
+setTestimonial(0);
+startTestimonialAutoplay();
